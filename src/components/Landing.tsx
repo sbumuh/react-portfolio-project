@@ -1,8 +1,29 @@
+import { useEffect, useState } from "react";
+
 const Landing = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const lineOpacity = Math.max(0, Math.min(1, 1 - scrollPosition / 400));
+
   return (
     <>
       <section className="h-screen bg-gradient-to-br from-[#0EA5E9] to-[#8B5CF6] flex items-center justify-center relative">
-        <div className="absolute bottom-0 w-full h-[2px] bg-white/30 backdrop-blur-sm shadow-lg" />
+        <div 
+          className="absolute bottom-0 w-full h-[2px] backdrop-blur-sm shadow-lg transition-opacity duration-300"
+          style={{
+            background: `linear-gradient(to right, transparent, rgba(255,255,255,${lineOpacity}), transparent)`,
+            opacity: lineOpacity,
+          }}
+        />
         <div className="text-center space-y-8 animate-fade-in">
           <div className="relative group w-40 h-40 mx-auto rounded-full overflow-hidden">
             <img
