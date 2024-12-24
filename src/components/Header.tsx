@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Facebook, Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   const socialLinks = [
-    { Icon: Mail, href: "mailto:contact@example.com", label: "Email" },
+    { Icon: Facebook, href: "https://facebook.com", label: "Facebook" },
     { Icon: Github, href: "https://github.com", label: "GitHub" },
     { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
     { Icon: Twitter, href: "https://twitter.com", label: "Twitter" },
