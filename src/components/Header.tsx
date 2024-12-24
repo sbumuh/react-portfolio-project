@@ -49,28 +49,26 @@ const Header = () => {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-primary transition-colors"
+              className="group relative overflow-hidden text-white hover:text-primary transition-colors"
               aria-label={label}
             >
               <Icon className="w-5 h-5" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
             </a>
           ))}
         </div>
         <nav className="flex space-x-8">
-          <a
-            href="#projects"
-            onClick={(e) => handleNavClick(e, "projects")}
-            className="text-white hover:text-primary transition-colors"
-          >
-            Projects
-          </a>
-          <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, "contact")}
-            className="text-white hover:text-primary transition-colors"
-          >
-            Contact
-          </a>
+          {["projects", "contact"].map((item) => (
+            <a
+              key={item}
+              href={`#${item}`}
+              onClick={(e) => handleNavClick(e, item)}
+              className="group relative overflow-hidden text-white hover:text-primary transition-colors"
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+            </a>
+          ))}
         </nav>
       </div>
     </header>
