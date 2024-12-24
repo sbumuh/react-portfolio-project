@@ -3,7 +3,7 @@ const Landing = () => {
     <section className="h-screen bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center">
       <div className="text-center space-y-8 animate-fade-in">
         <img
-          src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
+          src="/lovable-uploads/81d5d3b3-a12f-4615-a662-28ede5b826d3.png"
           alt="Profile"
           className="w-40 h-40 rounded-full mx-auto object-cover border-4 border-white"
         />
