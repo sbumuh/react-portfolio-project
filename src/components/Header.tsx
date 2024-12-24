@@ -16,6 +16,17 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   const socialLinks = [
     { Icon: Mail, href: "mailto:contact@example.com", label: "Email" },
     { Icon: Github, href: "https://github.com", label: "GitHub" },
@@ -46,10 +57,18 @@ const Header = () => {
           ))}
         </div>
         <nav className="flex space-x-8">
-          <a href="#projects" className="text-white hover:text-primary transition-colors">
+          <a
+            href="#projects"
+            onClick={(e) => handleNavClick(e, "projects")}
+            className="text-white hover:text-primary transition-colors"
+          >
             Projects
           </a>
-          <a href="#contact" className="text-white hover:text-primary transition-colors">
+          <a
+            href="#contact"
+            onClick={(e) => handleNavClick(e, "contact")}
+            className="text-white hover:text-primary transition-colors"
+          >
             Contact
           </a>
         </nav>
