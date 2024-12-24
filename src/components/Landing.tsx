@@ -1,6 +1,6 @@
 const Landing = () => {
   return (
-    <section className="h-screen bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center">
+    <section className="h-screen bg-gradient-to-br from-[#0EA5E9] to-[#8B5CF6] flex items-center justify-center">
       <div className="text-center space-y-8 animate-fade-in">
         <div className="relative group w-40 h-40 mx-auto rounded-full overflow-hidden">
           <img
