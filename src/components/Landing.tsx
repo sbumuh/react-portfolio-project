@@ -8,7 +8,7 @@ const Landing = () => {
           className="w-40 h-40 rounded-full mx-auto object-cover border-4 border-white"
         />
         <h1 className="text-2xl font-bold text-white font-display">Hello, I am Pete!</h1>
-        <p className="text-5xl text-white/90 font-sans">Full Stack Developer & UI Designer</p>
+        <p className="text-5xl text-white/90 font-sans">A frontend developer specialised in React</p>
       </div>
     </section>
   );
