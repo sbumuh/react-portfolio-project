@@ -1,5 +1,28 @@
 # Welcome to your Lovable project
 
+## How to run this app
+
+1. Make sure you have Node.js installed
+   - Visit [nodejs.org](https://nodejs.org) to install, or
+   - Install with nvm: [install instructions](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+2. Open your terminal and run these commands:
+```sh
+# Step 1: Clone the repository
+git clone https://lovable.dev/projects/8fa01d77-c78e-43b5-889a-572c8a8674ed
+
+# Step 2: Go into the project folder
+cd dynamic-portfolio
+
+# Step 3: Install dependencies
+npm install
+
+# Step 4: Start the development server
+npm run dev
+```
+
+3. Open http://localhost:8080 in your browser
+
 ## Project info
 
 **URL**: https://lovable.dev/projects/8fa01d77-c78e-43b5-889a-572c8a8674ed
