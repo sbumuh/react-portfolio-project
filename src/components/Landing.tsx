@@ -7,8 +7,8 @@ const Landing = () => {
           alt="Profile"
           className="w-40 h-40 rounded-full mx-auto object-cover border-4 border-white"
         />
-        <h1 className="text-5xl font-bold text-white">Hello, I am Pete!</h1>
-        <p className="text-2xl text-white/90">Full Stack Developer & UI Designer</p>
+        <h1 className="text-2xl font-bold text-white">Hello, I am Pete!</h1>
+        <p className="text-5xl text-white/90">Full Stack Developer & UI Designer</p>
       </div>
     </section>
   );
