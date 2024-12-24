@@ -1,4 +1,4 @@
-import { Facebook, Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Facebook, Github, Linkedin, X, Instagram } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -31,7 +31,7 @@ const Header = () => {
     { Icon: Facebook, href: "https://facebook.com", label: "Facebook" },
     { Icon: Github, href: "https://github.com", label: "GitHub" },
     { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { Icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+    { Icon: X, href: "https://x.com", label: "X" },
     { Icon: Instagram, href: "https://instagram.com", label: "Instagram" },
   ];
 
