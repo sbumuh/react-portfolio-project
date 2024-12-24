@@ -53,7 +53,7 @@ const Header = () => {
               aria-label={label}
             >
               <Icon className="w-5 h-5" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent blur-[1px] -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
             </a>
           ))}
         </div>
@@ -66,7 +66,7 @@ const Header = () => {
               className="group relative overflow-hidden text-white hover:text-primary transition-colors"
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent blur-[1px] -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
             </a>
           ))}
         </nav>
