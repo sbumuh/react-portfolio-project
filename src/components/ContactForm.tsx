@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { Loader2 } from "lucide-react";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -137,9 +138,16 @@ const ContactForm = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors disabled:opacity-50"
+            className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
           >
-            {isLoading ? "Sending..." : "Submit"}
+            {isLoading ? (
+              <>
+                <Loader2 className="animate-spin" />
+                Sending...
+              </>
+            ) : (
+              "Submit"
+            )}
           </button>
         </form>
       </div>
