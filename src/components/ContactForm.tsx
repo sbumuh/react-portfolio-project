@@ -91,6 +91,11 @@ const ContactForm = () => {
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             />
+            {formData.message.length > 0 && formData.message.length < 25 && (
+              <p className="mt-1 text-sm text-red-500">
+                Message must be at least 25 characters long (currently {formData.message.length} characters)
+              </p>
+            )}
           </div>
           <button
             type="submit"
