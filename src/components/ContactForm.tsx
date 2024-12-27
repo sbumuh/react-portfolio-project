@@ -16,6 +16,11 @@ const ContactForm = () => {
     message: "",
   });
 
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -76,7 +81,7 @@ const ContactForm = () => {
               id="email"
               required
               className={`w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary ${
-                touched.email && formData.email === "" ? "border-red-500" : "border-gray-300"
+                touched.email && (formData.email === "" || !isValidEmail(formData.email)) ? "border-red-500" : "border-gray-300"
               }`}
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -84,6 +89,9 @@ const ContactForm = () => {
             />
             {touched.email && formData.email === "" && (
               <p className="mt-1 text-sm text-red-500">Required</p>
+            )}
+            {touched.email && formData.email !== "" && !isValidEmail(formData.email) && (
+              <p className="mt-1 text-sm text-red-500">Invalid email address</p>
             )}
           </div>
           <div>
