@@ -49,6 +49,11 @@ const ContactForm = () => {
               value={formData.firstName}
               onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
             />
+            {formData.firstName === "" && (
+              <p className="mt-1 text-sm text-red-500">
+                Please enter your first name
+              </p>
+            )}
           </div>
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
@@ -62,6 +67,11 @@ const ContactForm = () => {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
+            {formData.email === "" && (
+              <p className="mt-1 text-sm text-red-500">
+                Please enter your email address
+              </p>
+            )}
           </div>
           <div>
             <label htmlFor="enquiryType" className="block text-sm font-medium text-gray-700 mb-1">
@@ -91,6 +101,11 @@ const ContactForm = () => {
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             />
+            {formData.message === "" && (
+              <p className="mt-1 text-sm text-red-500">
+                Please enter your message
+              </p>
+            )}
             {formData.message.length > 0 && formData.message.length < 25 && (
               <p className="mt-1 text-sm text-red-500">
                 Message must be at least 25 characters long (currently {formData.message.length} characters)
