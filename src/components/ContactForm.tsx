@@ -65,7 +65,7 @@ const ContactForm = () => {
           </div>
           <div>
             <label htmlFor="enquiryType" className="block text-sm font-medium text-gray-700 mb-1">
-              Enquiry Type
+              Type of enquiry
             </label>
             <select
               id="enquiryType"
@@ -80,7 +80,7 @@ const ContactForm = () => {
           </div>
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-              Message
+              Your message
             </label>
             <textarea
               id="message"
