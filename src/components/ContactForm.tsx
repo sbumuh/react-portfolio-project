@@ -97,7 +97,7 @@ const ContactForm = () => {
             disabled={isLoading}
             className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors disabled:opacity-50"
           >
-            {isLoading ? "Sending..." : "Send Message"}
+            {isLoading ? "Sending..." : "Submit"}
           </button>
         </form>
       </div>
