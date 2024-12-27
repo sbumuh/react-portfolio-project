@@ -4,6 +4,11 @@ import { useToast } from "@/hooks/use-toast";
 const ContactForm = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [touched, setTouched] = useState({
+    firstName: false,
+    email: false,
+    message: false,
+  });
   const [formData, setFormData] = useState({
     firstName: "",
     email: "",
@@ -29,6 +34,11 @@ const ContactForm = () => {
       enquiryType: "general",
       message: "",
     });
+    setTouched({
+      firstName: false,
+      email: false,
+      message: false,
+    });
     setIsLoading(false);
   };
 
@@ -45,14 +55,16 @@ const ContactForm = () => {
               type="text"
               id="firstName"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+              autoFocus
+              className={`w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary ${
+                touched.firstName && formData.firstName === "" ? "border-red-500" : "border-gray-300"
+              }`}
               value={formData.firstName}
               onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+              onBlur={() => setTouched({ ...touched, firstName: true })}
             />
-            {formData.firstName === "" && (
-              <p className="mt-1 text-sm text-red-500">
-                Please enter your first name
-              </p>
+            {touched.firstName && formData.firstName === "" && (
+              <p className="mt-1 text-sm text-red-500">Required</p>
             )}
           </div>
           <div>
@@ -63,14 +75,15 @@ const ContactForm = () => {
               type="email"
               id="email"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+              className={`w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary ${
+                touched.email && formData.email === "" ? "border-red-500" : "border-gray-300"
+              }`}
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onBlur={() => setTouched({ ...touched, email: true })}
             />
-            {formData.email === "" && (
-              <p className="mt-1 text-sm text-red-500">
-                Please enter your email address
-              </p>
+            {touched.email && formData.email === "" && (
+              <p className="mt-1 text-sm text-red-500">Required</p>
             )}
           </div>
           <div>
@@ -97,14 +110,15 @@ const ContactForm = () => {
               required
               minLength={25}
               rows={4}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+              className={`w-full px-4 py-2 border rounded-md focus:ring-primary focus:border-primary ${
+                touched.message && formData.message === "" ? "border-red-500" : "border-gray-300"
+              }`}
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              onBlur={() => setTouched({ ...touched, message: true })}
             />
-            {formData.message === "" && (
-              <p className="mt-1 text-sm text-red-500">
-                Please enter your message
-              </p>
+            {touched.message && formData.message === "" && (
+              <p className="mt-1 text-sm text-red-500">Required</p>
             )}
             {formData.message.length > 0 && formData.message.length < 25 && (
               <p className="mt-1 text-sm text-red-500">
