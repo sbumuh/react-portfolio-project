@@ -22,18 +22,7 @@ const ContactForm = () => {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
-
+  const resetForm = () => {
     setFormData({
       firstName: "",
       email: "",
@@ -45,7 +34,38 @@ const ContactForm = () => {
       email: false,
       message: false,
     });
-    setIsLoading(false);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      // Simulate API call with 50% success rate
+      await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          Math.random() > 0.5 ? resolve(true) : reject(new Error("Random failure"));
+        }, 1500);
+      });
+
+      // Success case
+      toast({
+        title: "All good!",
+        description: `Thanks for your submission ${formData.firstName}, we will get back to you shortly!`,
+        variant: "default",
+      });
+
+      resetForm();
+    } catch (error) {
+      // Failure case
+      toast({
+        title: "Oops",
+        description: "Something went wrong, please try again later",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
